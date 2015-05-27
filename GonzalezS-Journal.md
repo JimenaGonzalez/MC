@@ -17,3 +17,5 @@ y los métodos a estudiar son:
 6. y metodos de MOnte Carlo.
 
 %area de stagin: git add asdf.md
+%git status
+%git commit (enter y comentario) (i o :) wq (guardar y salir)
