@@ -19,4 +19,4 @@ y los métodos a estudiar son:
 Instrucciones para git:
 area de stagin: git add asdf.md
 git status
-git commit (enter y comentario) (i o :) wq (guardar y salir)
+git commit (enter i y comentario exit : wq (guardar y salir))
