@@ -9,7 +9,7 @@ Herramientas del curso:
 + Python,
 
 y los métodos a estudiar son:
-1- interpolación,
+1. interpolación,
 2. analisis de Fourier,
 3. Diferenciación e integración numericas,
 4. ecuaciones diferenciales ordinarias,
