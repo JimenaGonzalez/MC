@@ -1,0 +1,8 @@
+#Primer punto
+\#!/bin/bash
+A = "$RANDOM"
+echo $A
+
+#Segundo punto
++ sed 's/\.//g' pgn.dat
++ sed -E 's/,([0-9])/.\1/g' pgn.dat
