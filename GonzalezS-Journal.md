@@ -81,4 +81,6 @@ fit y(x) 'galaxies.csv' using 2:3 via m,b
 replot m*x+b (una grafica sobre la otra)
 gnuplot scatterplot.gp (ejecutar comando de gnuplot en terminal)
 
-
+Compilar C:
+gcc -o integers.out integers.c (colocar nombre .out, por defecto a.out)
+./timer.sh "integers.out"
