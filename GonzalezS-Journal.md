@@ -67,3 +67,18 @@ Hands-on 2:
 3. 
 sed 's/<BR>//g' karmona.txt > a.txt
 sed 's/<\/center><\/BODY><\/HTML>//g' a.txt >  b.txt
+
+#3 de Junio de 2015
+curl http://exchange-rates.org/history/COP/USD/T > dollar.htm
+sed -E 's/<[^>]*>//g'
+sed -E 's/[a-zA-Z]//g'
+w3m http://exchange-rates.org/history/COP/USD/T | grep "USD COP rate for" | sed 's/COP.*//g' | sed 's/[a-zA-Z]//g'
+set xdata time 
+set timefmt "%m:/%m:/%m"
+Hacer fit en gnuplot:
+y(x)= mx+b
+fit y(x) 'galaxies.csv' using 2:3 via m,b
+replot m*x+b (una grafica sobre la otra)
+gnuplot scatterplot.gp (ejecutar comando de gnuplot en terminal)
+
+
