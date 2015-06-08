@@ -73,6 +73,7 @@ sed 's/<BR>//g' karmona.txt > a.txt
 sed 's/<\/center><\/BODY><\/HTML>//g' a.txt >  b.txt
 
 #3 de Junio de 2015
+
 ```
 curl http://exchange-rates.org/history/COP/USD/T > dollar.htm
 sed -E 's/<[^>]*>//g'
@@ -90,3 +91,6 @@ gnuplot scatterplot.gp (ejecutar comando de gnuplot en terminal)
 Compilar C:
 gcc -o integers.out integers.c (colocar nombre .out, por defecto a.out)
 ./timer.sh "integers.out"
+
+# 5 de Junio de 2015
+set view equal xyz
