@@ -6,4 +6,4 @@ i=$(($1-1))
 #cantidad de letras que le siguen a la posición inicial
 f=$(($2 - $1 +1))
 #imprime los f caracteres que están después de la posición $1
-echo ${$a:$i:$f}
+echo ${a:$i:$f}
