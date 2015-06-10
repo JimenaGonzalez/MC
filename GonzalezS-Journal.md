@@ -23,11 +23,14 @@ y los métodos a estudiar son:
 + git commit (+comentario) --> Se agrega un msj con información de lo que se actualizó.
 + git pushh --> Empuja los documentos, se muestran en internet.
 + git pull --> Baja los documentos de internet (actualiza).
++ git clone --> Clonar un repositorio
++ git add --all --> Eliminar archivo.s
 
 #29 de mayo de 2015:
-Se escribió un markdown con diferentes formatos. Hice un script que contiene la sintaxis básica de un for en bash,aritmética y redirecciones. 
+Se escribió un markdown con diferentes formatos. Hice un script que contiene la sintaxis básica de un for en bash, aritmética (con dobles parentesis) y redirecciones. 
 Aprendí a recuperar antiguas versiones de un archivo usando comandos de git. Con el comando git log recupero los hash de los commits enviados, encuentro el adecuado y usando checkout se recupera el archivo deseado.
-Manipular variables que estan en bash: varbash-->variable bash
+
+Para manipular variables que estan en bash: varbash --> variable bash (conversión a awk)
 ```
 awk -v varawk=$varbash
 var=$(echo $((1+2)))
@@ -35,42 +38,45 @@ echo $var
 ```
 
 #1 de junio de 2015:
-`[^0-3]` Todos los dígitos excepto 0 y 3.
-Para cambiar formato a archivo .csv:
+## Expresiones regulares: 
+Una expresión regular es una secuencia de caracteres que define un patrón de busqueda. Ejemplo: `[^0-3]` Todos los dígitos excepto 0 y 3.
+
+Para cambiar el formato de un archivo de texto .txt a archivo .csv:
 ```
 sed -E 's/\(.*\)//g' p.txt | sed -E 's/^ *//g' | sed 's/2000 J11/2000-J11/g' | sed 's/ +/,/g' 
 ```
+
 ## Gnuplot:
 Comandos: 
-+ help--> Informacion de gnuplot
-+ set term dumb --> la grafica se ve en la terminal
-+ plot x, plot sin(x) --> grafica las funciones dadas
++ help --> Informacion de gnuplot
++ set term dumb  --> la grafica se ve en la terminal
++ plot x, plot sin(x)  --> grafica las funciones dadas
 + plot[0:2*pi] --> Rango
 + set term qt --> Grafica en una ventana diferente
 + set title "sin(x)" --> Coloca títulos de las gráficas
 + set ylabel "y" --> Establecer etiqueta para el eje y
 + sed grid  --> Coloca cuadrícula en la gráfica.
 + set parametric, plot cos(t), sin(t)
-+ set size ratio1 --> Modificar la medida de los ejes 
-unset parametric
-`grafica 3D: splot x**2  + y**2`
-Grafica de dispersion: 
-lo que limita las columnas son comas: 
-set datafile separator ","
-using--> columnas a usar
-plot "joviansatellites.csv" using 2:3
-plot "joviansatellites.csv" using 2:3 with lines
-Definir funciones: 
-`quad(x)= x**2`
-`cube(x)= x**3`
-plot "joviansatellites.csv" using (cube($2)):(quad($3))
++ set size ratio1 --> Modificar la medida de los ejes (el círculo se grafica bien).
++ unset parametric
++ splot x**2  + y**2 --> splot para gráficas en 3D.
++ set datafile separator "," --> lo que limita las columnas son comas
++ plot "archivo.csv" using 2:3 -->  columnas a usar (para archivo .csv) (Gráficas de dispersión).
++ plot "archivo.csv" using 2:3 with lines  --> Incluye líneas que unen los puntos.
 
-Hands-on 2:
+Para definir funciones: 
++ `quad(x)= x**2`
++ `cube(x)= x**3`
++ plot "joviansatellites.csv" using (cube($2)):(quad($3)) 
+
+# Hands-on 2:
+```
 1. '^.... '
 2. sed 's/:/\t/g'
 3. 
 sed 's/<BR>//g' karmona.txt > a.txt
 sed 's/<\/center><\/BODY><\/HTML>//g' a.txt >  b.txt
+```
 
 #3 de Junio de 2015
 
