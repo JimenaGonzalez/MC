@@ -35,6 +35,7 @@ echo $var
 
 #1 de junio de 2015:
 `[^0-3]` Todos los digitos excepto 0 y 3
+
 para cambiar formato:
 ```
 sed -E 's/\(.*\)//g' p.txt | sed -E 's/^ *//g' | sed 's/2000 J11/2000-J11/g' | sed 's/ +/,/g' 
