@@ -14,5 +14,5 @@ r=`echo "c($m)*c($m)" | bc -l`
 #se llama el script ./circle.sh
 sh ./circle.sh $r
 #Intervalo de tiempo en el que la terminal descansa
-sleep 0.3
+sleep 0.8
 done
