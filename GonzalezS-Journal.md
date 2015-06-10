@@ -17,10 +17,12 @@ y los métodos a estudiar son:
 5. ecuaciones diferenciales parciales,
 6. y métodos de Monte Carlo.
 
-- Instrucciones para git:
-área de stagin: git add asdf.md
-git status
-git commit (enter i y comentario exit : wq (guardar y salir))
+## Instrucciones para git:
++ git add archivo.md --> Agrega al área de Staging
++ git status --> Muestra el estado del repositorio
++ git commit (+comentario) --> Se agrega un msj con información de lo que se actualizó.
++ git pushh --> Empuja los documentos, se muestran en internet.
++ git pull --> Baja los documentos de internet (actualiza).
 
 #29 de mayo de 2015:
 Se escribió un markdown con diferentes formatos. Hice un script que contiene la sintaxis básica de un for en bash,aritmética y redirecciones. 
@@ -28,7 +30,6 @@ Aprendí a recuperar antiguas versiones de un archivo usando comandos de git. Co
 Manipular variables que estan en bash: varbash-->variable bash
 ```
 awk -v varawk=$varbash
-
 var=$(echo $((1+2)))
 echo $var
 ```
@@ -49,9 +50,8 @@ Comandos:
 + set title "sin(x)" --> Coloca títulos de las gráficas
 + set ylabel "y" --> Establecer etiqueta para el eje y
 + sed grid  --> Coloca cuadrícula en la gráfica.
-set parametric
-plot cos(t), sin(t)
-set size ratio1
++ set parametric, plot cos(t), sin(t)
++ set size ratio1 --> Modificar la medida de los ejes 
 unset parametric
 `grafica 3D: splot x**2  + y**2`
 Grafica de dispersion: 
