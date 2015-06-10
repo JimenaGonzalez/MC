@@ -34,22 +34,21 @@ echo $var
 ```
 
 #1 de junio de 2015:
-`[^0-3]` Todos los digitos excepto 0 y 3
-
-para cambiar formato:
+`[^0-3]` Todos los dígitos excepto 0 y 3.
+Para cambiar formato a archivo .csv:
 ```
 sed -E 's/\(.*\)//g' p.txt | sed -E 's/^ *//g' | sed 's/2000 J11/2000-J11/g' | sed 's/ +/,/g' 
 ```
-gnuplot
-help--> Informacion de gnuplot
-set term dumb --> la grafica se ve en la terminal
-plot x, plot sin(x)
-rango plot[0:2*pi]
-ventana diferente: set term qt
-set title "sin(x)" 
-set ylabel "y"
-gnuplot> plot sin(x)
-sed grid
+## Gnuplot:
+Comandos: 
++ help--> Informacion de gnuplot
++ set term dumb --> la grafica se ve en la terminal
++ plot x, plot sin(x) --> grafica las funciones dadas
++ plot[0:2*pi] --> Rango
++ set term qt --> Grafica en una ventana diferente
++ set title "sin(x)" --> Coloca títulos de las gráficas
++ set ylabel "y" --> Establecer etiqueta para el eje y
++ sed grid  --> Coloca cuadrícula en la gráfica.
 set parametric
 plot cos(t), sin(t)
 set size ratio1
