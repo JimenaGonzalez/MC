@@ -94,3 +94,35 @@ gcc -o integers.out integers.c (colocar nombre .out, por defecto a.out)
 
 # 5 de Junio de 2015
 set view equal xyz
+
+#9 de Junio de 2015
+Make es una herramienta que automatiza tareas repetitivas. Si necesitamos hacer las mismas tareas una y otra vez, deberiamos usar un manager de construcción para manejar los detalles. Para esto es importante:
++ Encontrar un orden de estas tareas tal que toda tarea dada dependa en lo que se hizo antes. Este patrón aparece numerosas veces.
++ Establecer que depende de que.
++ Que ha hecho y que falta por ser hecho.
+El grupo de tareas se puede representar en un gráfico conceptual, donde las tareas son los nodos de la gráfica y los bordes (líneas que unen las tareas) son las dependencias. Se describen las dependencias en un archivo de construcción, usualmente es sólo un archivo de texto plano en un formato especializado. También se describe cómo actualizar cosas (cuáles comandos usar cuando las dependencias de algo han sido satisfechas y esta listo para actualizarse por sí mismo). Y eso es todo, el manager de contrucción maneja todo lo demás. En partícular, mantiene el historial de los que ya esta actualizado y lo que está listo por ser actualizado.
+
+#10 de Junio de 2015
+Código para generar curvas de Lissajous: 
+
+```
+%pylab inline
+A=0
+a=0
+d=0
+B=0
+b=0
+rcdefaults() # Esto pone el estilo en el estilo por defecto
+figure(figsize=(10,10))
+t=linspace(0,2*pi,250)
+for i in range(25):
+    subplot(5,5,i+1)
+    plot(A*sin(a*t +d), sin(B*t))
+    axis("off")
+    A=A+1
+    B=B+A
+    a=a+1
+    b=b+1
+    d=d+1
+show()
+```
