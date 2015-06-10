@@ -124,6 +124,7 @@ for i in range(25):
     a=a+1
     b=b+1
     d=d+1
+    savefig("Lissajous.png")
 show()
 ```
 ![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Lissajous.png)
