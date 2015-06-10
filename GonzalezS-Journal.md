@@ -126,3 +126,4 @@ for i in range(25):
     d=d+1
 show()
 ```
+![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Lissajous.png)
