@@ -168,7 +168,7 @@ plt.legend()
 plt.show(fig)
 savefig("16junioa.png")
 ```
-![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Lissajous.png)
+![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Imagenes/16junioa.png)
 
 Muestra el valor de m que es 681.24 Am^2
 
@@ -189,4 +189,4 @@ plt.legend()
 plt.show(fig)
 savefig("16juniob.png")
 ```
-![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Lissajous.png)
+![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Imagenes/16juniob.png)
