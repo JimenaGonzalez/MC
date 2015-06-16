@@ -134,3 +134,59 @@ for i in range(25):
 show()
 ```
 ![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Lissajous.png)
+
+#16 de Junio de 2015
+
+Actividad: Hands-On 7.3:
+
+Paquetes que se importan:
+
+```
+%pylab inline
+import numpy
+import scipy.optimize as optimization
+from scipy.optimize import curve_fit
+```
+Tabla con los datos datos:
+```
+x=numpy.array([2.3,2.8,3.2,3.7,4.3])
+y=numpy.array([34745,19689,12594,7982,5822])
+```
+Definición de la función del modelo teórico adecuado:
+```
+def func(x,a, m):
+    return (a*m)/(x**3)
+fitpars, covmat=curve_fit(func,x,y)
+```
+Código que hace un ajuste por mínimos cuadrados: 
+```
+fig=plt.figure()
+ax=fig.add_subplot(111)
+ax.plot(x,y,"o",ms=10,label="puntos muestrales")
+ax.plot(x,func(x,*fitpars),label=u"Interpolación")
+plt.legend()
+plt.show(fig)
+savefig("16junioa.png")
+```
+![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Lissajous.png)
+
+Muestra el valor de m que es 681.24 Am^2
+
+```
+print "El magnitud del campo magnetico de imán es :"
+print fitpars[1]
+```
+Se hace la interpolación, se determina el campo magnético B en los valores dado de x (xt).
+
+```
+xt= np.linspace(2,5,100)
+yt= func(xt,fitpars[0],fitpars[1])
+fig=plt.figure()
+ax=fig.add_subplot(111)
+ax.plot(x,func(x,*fitpars),label=u"Interpolación")
+ax.plot(xt,yt,"o",ms=5,label=u"Nuevos puntos")
+plt.legend()
+plt.show(fig)
+savefig("16juniob.png")
+```
+![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Lissajous.png)
