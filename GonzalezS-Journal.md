@@ -190,3 +190,17 @@ plt.show(fig)
 savefig("16juniob.png")
 ```
 ![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Imagenes/16juniob.png)
+
+# 17 de Junio de 2015
+
+## Para crear ramas en github:
+
++ `git init` Iniciar git en una carpeta
++ `git commit -m "msj"`
++ `git branch`  muestra ramas del repositorio (la rama en la que se trabaja se muestra astérisco).
++ `git branch rama1` --> la rama que se creo
++ `git checkout rama1` --> para cambiar de rama
+para hacer merge:
++ en master: git merge rama1
++ git tag --> Muestra las Etiqueta a los commits, muestra las etiquetas del repositorio
++ git push origin version19-jun-2015  "nombre de la etiqueta" --> para crear tag
