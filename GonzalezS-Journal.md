@@ -204,3 +204,55 @@ para hacer merge:
 + en master: git merge rama1
 + git tag --> Muestra las Etiqueta a los commits, muestra las etiquetas del repositorio
 + git push origin version19-jun-2015  "nombre de la etiqueta" --> para crear tag
+
+# 23 de junio de 2015
+'pip install "packete" --> Instalar packetes de ipython'
+
+## Hands-On 10:
+Se estimó la duración del ciclo solar analizando con una transformada discreta de Fourier los datos dados. Código usado:
+
+```
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import os
+%matplotlib inline
+from scipy.fftpack import ifft, fft, fftfreq
+from scipy import signal
+data=genfromtxt("month.csv", delimiter=",")
+nuevo=data[2316:len(data)-1]
+anio=nuevo[:,0]
+mes=nuevo[:,1]
+manchas=nuevo[:,3]
+mes_anio=mes
+tiempo=mes
+for i in range(len(mes)):
+    mes_anio[i]= float((mes[i]-1)/12)
+    tiempo[i]= anio[i] + mes_anio[i]
+plt.figure(figsize=(10,10))
+plt.plot(tiempo,manchas)
+plt.show()
+N=2315
+f=12.0
+dt =  1./f / N
+fft_senal = fft(manchas)
+freq = fftfreq(N, dt)
+plt.figure(figsize=(10,10))
+plt.plot(freq,np.abs(fft_senal),label=u'DFT señal')
+plt.show()
+plt.figure(figsize=(10,10))
+fft_senal[np.abs(freq) > 500] = 0
+y_cleaned=ifft(fft_senal)
+plt.plot(tiempo,np.real(y_cleaned),'r', label=u'Señal filtrada', lw=2)
+plt.plot(tiempo,np.real(manchas),label=u'Señal original con ruido', alpha=0.4)
+plt.xlim(1900,2000)
+plt.ylim(0,200)
+plt.xlabel(u"t/año")
+plt.ylabel("manchas solares/ mes")
+savefig("manchas.png")
+```
+
+Figura resultante:
+Observando la figura puede verse que la duración del ciclo solar es de aproximadamente 11 años.
+
+![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Imagenes/23junio.png)
