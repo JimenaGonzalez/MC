@@ -253,6 +253,6 @@ savefig("manchas.png")
 ```
 
 Figura resultante:
-Observando la figura puede verse que la duración del ciclo solar es de aproximadamente 11 años.
+Observando la figura puede verse que la duración del ciclo solar es de aproximadamente 10 años.
 
 ![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Imagenes/23junio.png)
