@@ -69,44 +69,58 @@ Para definir funciones:
 + `cube(x)= x**3`
 + plot "joviansatellites.csv" using (cube($2)):(quad($3)) 
 
+## 2 de Junio de 2015
 # Hands-on 2:
 ```
-1. '^.... '
-2. sed 's/:/\t/g'
-3. 
-sed 's/<BR>//g' karmona.txt > a.txt
-sed 's/<\/center><\/BODY><\/HTML>//g' a.txt >  b.txt
+1. '^.... '  -> expresión regular que representa cuatro caracteres al inicio de una línea junto con un espacio a continuación
+2. sed 's/:/\t/g' --> Para cambiar a formato tsv
+3. Número pi
+sed 's/<BR>//g' karmona.txt | sed 's/<\/center><\/BODY><\/HTML>//g' | sed -E 's/<[^>]*>//g' |  >  b.txt
+En Sublime buscar: \D10\D y \D y reemplazar por nada
+```
+Gráfica en gnuplot desde bash:
 ```
 
 #3 de Junio de 2015
-
+```
+gnuplot<<EOF
+set term dumb
+set datafile separator ","
+plot $1 using $2:$3
+EOF
 ```
 curl http://exchange-rates.org/history/COP/USD/T > dollar.htm
 sed -E 's/<[^>]*>//g'
 sed -E 's/[a-zA-Z]//g'
 w3m http://exchange-rates.org/history/COP/USD/T | grep "USD COP rate for" | sed 's/COP.*//g' | sed 's/[a-zA-Z]//g'
 ```
-set xdata time 
-set timefmt "%m:/%m:/%m"
+Más comandos para utilizar en Gnuplot:
++ set xdata time 
++ set timefmt "%m:/%m:/%m" <BR>
 Hacer fit en gnuplot:
-y(x)= mx+b
-fit y(x) 'galaxies.csv' using 2:3 via m,b
-replot m*x+b (una grafica sobre la otra)
-gnuplot scatterplot.gp (ejecutar comando de gnuplot en terminal)
++ y(x)= mx+b
++ fit y(x) 'galaxies.csv' using 2:3 via m,b
++ replot m*x+b (una grafica sobre la otra)
++ gnuplot scatterplot.gp (ejecutar comando de gnuplot en terminal)
 
 Compilar C:
-gcc -o integers.out integers.c (colocar nombre .out, por defecto a.out)
+gcc -o integers.out integers.c --> colocar nombre .out (por defecto a.out)
 ./timer.sh "integers.out"
 
 # 5 de Junio de 2015
 set view equal xyz
 
 #9 de Junio de 2015
+## Hands-on 3 y 4
 Make es una herramienta que automatiza tareas repetitivas. Si necesitamos hacer las mismas tareas una y otra vez, deberiamos usar un manager de construcción para manejar los detalles. Para esto es importante:
 + Encontrar un orden de estas tareas tal que toda tarea dada dependa en lo que se hizo antes. Este patrón aparece numerosas veces.
 + Establecer que depende de que.
 + Que ha hecho y que falta por ser hecho.
 El grupo de tareas se puede representar en un gráfico conceptual, donde las tareas son los nodos de la gráfica y los bordes (líneas que unen las tareas) son las dependencias. Se describen las dependencias en un archivo de construcción, usualmente es sólo un archivo de texto plano en un formato especializado. También se describe cómo actualizar cosas (cuáles comandos usar cuando las dependencias de algo han sido satisfechas y esta listo para actualizarse por sí mismo). Y eso es todo, el manager de contrucción maneja todo lo demás. En partícular, mantiene el historial de los que ya esta actualizado y lo que está listo por ser actualizado.
+
+##Proyecto final: 
+Se podría utilizar los comandos vistos en bash para hacer análisis de datos, y desde el script hacer una llamada a Gnuplot para realizar gráficas para representar los resultados. Además, los datos podrían descargarse del código fuente de una página y usando expresiones guardar los datos en un archivo. 
+
 
 #10 de Junio de 2015
 Código para generar curvas de Lissajous: 
@@ -191,6 +205,10 @@ savefig("16juniob.png")
 ```
 ![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Imagenes/16juniob.png)
 
+##Proyecto final:
+Lo aprendido de ajustes puede aplicarse a análisis de datos, de esta manera se podria observar que tendencia tienen los datos y si estos concuerdan con el modelo teórico que se tiene para el sistema.
+
+
 # 17 de Junio de 2015
 
 ## Para crear ramas en github:
@@ -256,3 +274,32 @@ Figura resultante:
 Observando la figura puede verse que la duración del ciclo solar es de aproximadamente 10 años.
 
 ![alt tag](https://github.com/JimenaGonzalez/MC/blob/master/Imagenes/23junio.png)
+
+# 1 de julio de 2015
+
+## Hands-on 13, se demostraron las ecuaciones utilizadas para los métodos de Adams-Bashforth de orden 2, 3 y 4 usando Sympy como ayuda en los cálculos simbólicos.
+
+Paquetes a importar: `from sympy import *`
+
+Orden 2:
+```
+t,fn,fn1,h,tn,tn1=symbols('t fn fn1 h tn tn1')
+tn1=tn-h
+simplify(integrate(fn1*(t-tn)/(tn1-tn) + fn*(t-tn1)/(tn-tn1), (t,tn,(tn+h))))
+```
+
+Orden 3:
+```
+t,fn,fn1,fn2,h,tn,tn1,tn2=symbols('t fn fn1 fn2 h tn tn1 tn2')         
+tn1=tn-h
+tn2=tn-2*h
+simplify(integrate(fn*(t-tn1)/(tn-tn1)*(t-tn2)/(tn-tn2) + fn1*(t-tn)/(tn1-tn)*(t-tn2)/(tn1-tn2) + fn2*(t-tn)/(tn2-tn)*(t-tn1)/(tn2-tn1),(t,tn,(tn+h))))
+```
+
+Orden 4:
+```
+t,fn,fn1,fn2,fn3,h,tn,tn1,tn2,tn3=symbols('t fn fn1 fn2 fn3 h tn tn1 tn2 tn3')  tn1=tn-h
+tn2=tn-2*h
+tn3=tn -3*h
+simplify(integrate(fn*(t-tn1)/(tn-tn1)*(t-tn2)/(tn-tn2)*(t-tn3)/(tn-tn3) + fn1*(t-tn)/(tn1-tn)*(t-tn2)/(tn1-tn2)*(t-tn3)/(tn1-tn3) + fn2*(t-tn)/(tn2-tn)*(t-tn1)/(tn2-tn1)*(t-tn3)/(tn2-tn3) + fn3*(t-tn)/(tn3-tn)*(t-tn1)/(tn3-tn1)*(t-tn2)/(tn3-tn2),(t,tn,(tn+h))))
+```
